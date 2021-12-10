@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        align-content: center;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" class="button">Add New Instrument</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="text" placeholder="Instrument Name">
+        <br>
+        <label for="brand">Choose a brand</label>
+        <select name="brand" id="brand">
+            <option value="Fender">Fender</option>
+            <option value="Yamaha">Yamaha</option>
+            <option value="Maton">Maton</option>
+        </select>
+        <br>
+        <label for="type">Choose an instrument type</label>
+        <select name="type" id="type">
+            <option value="String">String</option>
+            <option value="Woodwind">Woodwind</option>
+            <option value="Percussion">Percussion</option>
+            <option value="Brass">Brass</option>
+            <option value="Keyboard">Keyboard</option>
+        </select>
+        <br>
+        <input type="text" placeholder="Input Price">
+        <button id="submit" class="button">Submit</button>
+    </div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    //Submit button
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Final</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="foo" onClick="count=0; window.location.reload();">Cart: {{count}}</div>
+        <br>
+    <div id="card" v-for="items in store" class="card" @mouseover="items.toShowOnHover = true" @mouseleave="items.toShowOnHover=false" :class="{active: items.toShowOnHover}" v-show="items.toShowClick">
+        <img :src=items.img alt="">
+        <h1 class="name">{{items.name}}</h1>
+        <button class="button" @click="items.toShowClick=false; count++">Add To Cart</button>
+    </div>
+    </div>
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.native-instruments.com%2Fen%2Fproducts%2Fkomplete%2Fguitar%2Fsession-guitarist-picked-acoustic%2F&psig=AOvVaw3xTF8DMjQdBTDSSKpFFTME&ust=1638057292953000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCIDmuoqdt_QCFQAAAAAdAAAAABAE" alt="">
+<script src="vue.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
